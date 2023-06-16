@@ -1066,8 +1066,10 @@ console.log("Start");
 x = processing();
 console.log("End");
 ```
+
 ## Error Fisrt Callback :-
-- 
+- The "error-first callback" pattern is a common convention for handling asynchronous operations using callbacks. This pattern is often used in Node.js and other JavaScript frameworks.
+- The convention is to pass the error as the first parameter and the result as the second parameter of the callback function.
 ```js
 function fetchCustom(url, fn) {
     console.log("STARTED DOWNLOADING FROM ", url);
