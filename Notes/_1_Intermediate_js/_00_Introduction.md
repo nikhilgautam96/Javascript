@@ -1,23 +1,31 @@
+[introduction](#intro)
+
 ## Categories of language :-
-- Based on the way a language executes the code lines it can be categorised into three major types :-
-    1. `Compiled`           : c++
-    2. `Interpreted`        : shell script (purely interpreted)
-    3. `Hybrid`             : Java, Javascript, python, etc.
+
+-   Based on the way a language executes the code lines it can be categorised into three major types :-
+    1. `Compiled` : c++
+    2. `Interpreted` : shell script (purely interpreted)
+    3. `Hybrid` : Java, Javascript, python, etc.
 
 ## Javascript :-
-- It is a `multipurpose(used for web apps, mobile apps, etc.)` and `multi-paradigm(it supports different styles of programming - functional progamming, object oriented programming, procedural programming, etc.)` programming language(bcz it has decision making capability).
-- It is not a purely scripting language like the shell script.
-- It's official name is `EcmaScript`.
-- **`Apart from the primitive types, everything in JS is an object.`**
+
+-   It is a `multipurpose(used for web apps, mobile apps, etc.)` and `multi-paradigm(it supports different styles of programming - functional progamming, object oriented programming, procedural programming, etc.)` programming language(bcz it has decision making capability).
+-   It is not a purely scripting language like the shell script.
+-   It's official name is `EcmaScript`.
+-   **`Apart from the primitive types, everything in JS is an object.`**
+
 #### `4 Pillars of JS` :-
+
 1. `Coersion`
 2. `Scopes`
 3. `Asynchronous features`
 4. `Objects and classes`
 
 ## Boxing :-
-- `Boxing` as a term does not exists in JS docs, but it is a term given by the programming community to justify certain phenomenon that happens in JS language.
-- eg :-
+
+-   `Boxing` as a term does not exists in JS docs, but it is a term given by the programming community to justify certain phenomenon that happens in JS language.
+-   eg :-
+
 ```JS
 9.toString();           // gives error.
 (9).toString();         // it does not give any error as the () does boxing. ie - converts it to Number.
@@ -27,25 +35,30 @@ Number(9).toString();   // here also we are explicitly converting value to Numbe
 ```
 
 ## Different ways to show/print output in JS :-
+
 1. `console.log("Heloo world!!");`
 
 ## Data types in JS :-
-- The `8-different ECMAScript language types` are :
-    - Primitives :
-        1. `Undefined`, 
-        2. `Null`, 
-        3. `Boolean`, 
-        4. `Symbol`, 
-        5. `BigInt`, 
-        6. `String`, 
+
+-   The `8-different ECMAScript language types` are :
+
+    -   Primitives :
+        1. `Undefined`,
+        2. `Null`,
+        3. `Boolean`,
+        4. `Symbol`,
+        5. `BigInt`,
+        6. `String`,
         7. `Number`,
-    - Non-Primivitive :
+    -   Non-Primivitive :
         1. `Object`.
 
-- `NOTE` : JS does not differentiate between character and string. ie- it does not has any seperate type as character.
+-   `NOTE` : JS does not differentiate between character and string. ie- it does not has any seperate type as character.
 
 ## Operators in JS :-
-- `typeof <value>` - it returns the type of any value in string format.
+
+-   `typeof <value>` - it returns the type of any value in string format.
+
 ```JS
 // It is not necessary to use brackets with "typeof".
 console.log(typeof 12);                     // "number"
@@ -62,7 +75,8 @@ console.log(typeof(12));                    // "number"
 console.log(typeof(typeof(12)));            // "string"
 ```
 
-- `arithmetic operators` :
+-   `arithmetic operators` :
+
 ```JS
 // arithmetic operators
 console.log(10 + 2);
@@ -72,7 +86,8 @@ console.log(10 / 2);
 console.log(10 % 2);
 ```
 
-- `assignment operators` :
+-   `assignment operators` :
+
 ```JS
 // assignment operators
 let x = 10;
@@ -86,7 +101,8 @@ x %= 2;
 // 2nd way --> Math.floor(5/2)
 ```
 
-- `logical operators` :
+-   `logical operators` :
+
 ```JS
 // logical operators
     // When we talk logical operators --> it refers to "logic gates"
@@ -134,30 +150,32 @@ console.log(null && 5);                 // null
 console.log(undefined && 5);            // undefined
 ```
 
-- `comparison operators` :
+-   `comparison operators` :
+
 ```JS
     // comparison operators
-    // " > "            : greater than
-    // " >= "           : greater than equal to
-    // " < "            : less than
-    // " <= "           : less than equal to
-    // " != "           : abstract not equal to
-    // " !== "          : strict not equal to
-    // " == "           : abstract equality
-    // " === "          : strict equality
+    " > "            : greater than
+    " >= "           : greater than equal to
+    " < "            : less than
+    " <= "           : less than equal to
+    " != "           : abstract not equal to
+    " !== "          : strict not equal to
+    " == "           : abstract equality
+    " === "          : strict equality
 ```
 
-- `String based operator` :  " + " concatenation operator.
+-   `String based operator` : " + " concatenation operator.
 
-- `Bitwise operator` :
+-   `Bitwise operator` :
+
 ```JS
 // Bitwise operator
-    // " & "            : bitwise AND
-    // " | "            : bitwise OR
-    // " ^ "            : bitwise XOR
-    // " ~ "            : bitwise NOT
-    // " << "           : bitwise left shift    = multiply by 2
-    // " >> "           : bitwise right shift   = divide by 2
+    " & "            : bitwise AND
+    " | "            : bitwise OR
+    " ^ "            : bitwise XOR
+    " ~ "            : bitwise NOT
+    " << "           : bitwise left shift    = multiply by 2
+    " >> "           : bitwise right shift   = divide by 2
 console.log(5 & 3);     // 1
 console.log(8 | 1);     // 9
 console.log(3 ^ 3);     // 0
@@ -165,37 +183,45 @@ console.log(5 << 2);    // 20
 console.log(5 >> 1);    // 2
 ```
 
-- `Ternary operator` :  `(condition) ? (expression 1) : (expression 2);`
+-   `Ternary operator` : `(condition) ? (expression 1) : (expression 2);`
 
-- `Exponentiation/Power operator` :
+-   `Exponentiation/Power operator` :
+
 ```JS
 console.log(2**4);      // 2^4 = 16
 ```
 
 ## Program vs Process :-
-- A piece of code in a file is a program.
-- A program in a running state is a process.
+
+-   A piece of code in a file is a program.
+-   A program in a running state is a process.
 
 ## Variables in JS :-
-- defined using :
+
+-   defined using :
     1. `var`
     2. `let`
     3. `const`
 
 ## Keywords in JS :-
-- Keywords are special reserved words that can be used only to serve its defined purpose in JS.
-- eg :- 
+
+-   Keywords are special reserved words that can be used only to serve its defined purpose in JS.
+-   eg :-
+
 ```JS
     console.log(let);       // gives an error
     var const = 10;         // gives an error
 ```
 
 ## Statement vs Expression :-
-- `a = 1 + (x + 2)` is an expression.
-- `(x +2)` is an statement.
+
+-   `a = 1 + (x + 2)` is an expression.
+-   `(x +2)` is an statement.
 
 ## Loops in JS :-
-1. `while` : 
+
+1. `while` :
+
 ```JS
 let i = 0;
 while(i < 10) {
@@ -203,7 +229,9 @@ while(i < 10) {
     i += 1;
 }
 ```
+
 2. `for` :
+
 ```JS
 for(let i = 0; i < 10; i++) {
     console.log(i);
@@ -211,7 +239,9 @@ for(let i = 0; i < 10; i++) {
 ```
 
 ## break vs continue :-
-- `break` :
+
+-   `break` :
+
 ```JS
 // break : breaks out of nearest loop.
 for(let i = 1; i<20; i++) {
@@ -232,7 +262,9 @@ for(let i = 0; i<5; i++) {
     console.log(str);
 }
 ```
-- `continue` :
+
+-   `continue` :
+
 ```JS
 // continue : we move to the nearest loop for execution.
 for(let i = 1; i<10; i++) {
@@ -245,6 +277,7 @@ for(let i = 1; i<10; i++) {
 ```
 
 ## switch :-
+
 ```JS
 let exp = "%";
 let a = 10;

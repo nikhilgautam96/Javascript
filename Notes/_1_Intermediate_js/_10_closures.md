@@ -1,17 +1,20 @@
 # Closures :-
-- Closure is when a function remembers it's lexical scope even when the function is executed outside the lexical scope.
-- Lexical scoping allows nested functions to "remember" their surrounding context and access variables from their enclosing scopes, even after the outer function has finished executing. This behavior is often referred to as a `closure` and is a powerful feature in JavaScript.
+
+-   Functions along with its lexical scope is closure.
+-   Closure is when a function remembers it's lexical scope even when the function is executed outside the lexical scope.
+-   Lexical scoping allows nested functions to "remember" their surrounding context and access variables from their enclosing scopes, even after the outer function has finished executing. This behavior is often referred to as a `closure` and is a powerful feature in JavaScript.
+
 ```js
 function todo(task) {
-    console.log("Start of todo");
+    console.log('Start of todo');
     setTimeout(function fun() {
-        console.log("completed ", task);
+        console.log('completed ', task);
     }, 2000);
-    console.log("End of todo");
+    console.log('End of todo');
 }
-console.log("Starting");
-todo("assignments");
-console.log("Ending");
+console.log('Starting');
+todo('assignments');
+console.log('Ending');
 // OUTPUT :
 // Starting
 // Start of todo
@@ -20,20 +23,22 @@ console.log("Ending");
 // completed  assignments
 ```
 
--  In closure the the nested function does not just remembers the value of variable but actually it remembers the variable itself(ie. from which scope the variable is coming) and so if we change the value of the variable we can see the changed value is reflected.
-    - eg 1 :-
+-   In closure the the nested function does not just remembers the value of variable but actually it remembers the variable itself(ie. from which scope the variable is coming) and so if we change the value of the variable we can see the changed value is reflected.
+
+    -   eg 1 :-
+
     ```js
     function todo(task) {
-        console.log("started todo");
+        console.log('started todo');
         setTimeout(function fun() {
-            console.log("Completed ", task);
+            console.log('Completed ', task);
         }, 5000);
-        task = "Nikhil";
-        console.log("completed todo");
+        task = 'Nikhil';
+        console.log('completed todo');
     }
-    console.log("Starting");
-    todo("assignment");
-    console.log("Ending");
+    console.log('Starting');
+    todo('assignment');
+    console.log('Ending');
     // OUTPUT :
     // Starting
     // started todo
@@ -41,26 +46,30 @@ console.log("Ending");
     // Ending
     // Completed  Nikhil
     ```
-    - eg 2 :-
+
+    -   eg 2 :-
+
     ```js
     function a(name) {
-        name = "Gautam";
+        name = 'Gautam';
         return function b() {
             console.log(name);
-        }
+        };
     }
 
-    let x = a("Nikhil");
+    let x = a('Nikhil');
     console.log(x);
     x();
     // OUTPUT :
     // [Function: b]
     // Gautam
     ```
-    - eg 3 :-
+
+    -   eg 3 :-
+
     ```js
     function fun() {
-        let name = "Harshit";
+        let name = 'Harshit';
 
         function callback(params) {
             console.log(college);
@@ -71,8 +80,8 @@ console.log("Ending");
     }
     let x = fun();
     x();
-    var college = "IIT Delhi";
-    var name = "Nikhil";
+    var college = 'IIT Delhi';
+    var name = 'Nikhil';
     x();
     // OUTPUT :
     // undefined
@@ -80,7 +89,9 @@ console.log("Ending");
     // IIT Delhi
     // Harshit
     ```
-    - eg 4 :-
+
+    -   eg 4 :-
+
     ```js
     function fun() {
         // let name = "Harshit";
@@ -89,18 +100,20 @@ console.log("Ending");
             console.log(name);
         }, 5000);
         // let name = "Harshit";
-        name = "Harshit";
+        name = 'Harshit';
     }
     console.log(fun());
-    var college = "IIT Delhi";
-    var name = "Nikhil";
+    var college = 'IIT Delhi';
+    var name = 'Nikhil';
 
     // OUTPUT :
     // undefined
     // IIT Delhi
     // Nikhil
     ```
-    - eg 5 :-
+
+    -   eg 5 :-
+
     ```js
     function fun() {
         // let name = "Harshit";
@@ -108,42 +121,45 @@ console.log("Ending");
             console.log(college);
             console.log(name);
         }, 5000);
-        let name = "Harshit";
+        let name = 'Harshit';
         // name = "Harshit";
     }
     console.log(fun());
-    var college = "IIT Delhi";
-    var name = "Nikhil";
+    var college = 'IIT Delhi';
+    var name = 'Nikhil';
 
     // OUTPUT :
     // undefined
     // IIT Delhi
     // Harshit
     ```
-    - eg 6 :-
+
+    -   eg 6 :-
+
     ```js
     function fun(task1, task2) {
-        task1 = "Nikhil";
+        task1 = 'Nikhil';
         setTimeout(function gun() {
-            console.log("completed", task1);
+            console.log('completed', task1);
         }, 2000);
         task1 = task2;
-        task2 = "Gautam";
+        task2 = 'Gautam';
     }
 
     fun(12, 34);
     // completed 34
     ```
 
-- `How actually the variables still persist even after todo is completed and removed from call stack??`
-    - JS maintains & manages a seperate ***`closure execution context`***. there it maintains all the variables(along with its scope) and not the values.
-- eg 1 :-
+-   `How actually the variables still persist even after todo is completed and removed from call stack??`
+    -   JS maintains & manages a seperate **_`closure execution context`_**. there it maintains all the variables(along with its scope) and not the values.
+-   eg 1 :-
+
 ```js
 function test() {
-    for(var i = 0; i<3; i++) {
+    for (var i = 0; i < 3; i++) {
         setTimeout(function exec() {
             console.log(`i : ${i}`);
-        }, i*1000);
+        }, i * 1000);
     }
 }
 test();
@@ -152,16 +168,18 @@ test();
 // i : 3
 // i : 3
 
-// Reason : here closure remembers the function scope of variable 'i' bcz of 'var'. 
+// Reason : here closure remembers the function scope of variable 'i' bcz of 'var'.
 //          every time a new block is created.
 ```
-- eg 2:-
+
+-   eg 2:-
+
 ```js
 function test_1() {
-    for(let i = 0; i<3; i++) {
+    for (let i = 0; i < 3; i++) {
         setTimeout(function exec() {
             console.log(`i : ${i}`);
-        }, i*1000);
+        }, i * 1000);
     }
 }
 // test_1();
@@ -170,16 +188,16 @@ function test_1() {
 // i : 1
 // i : 2
 
-// Reason : here closure remembers the block scope of variable 'i' bcz of 'let'. 
+// Reason : here closure remembers the block scope of variable 'i' bcz of 'let'.
 //          every time a new block is created. everytime the loop runs a new block is created
 //          and the value of 'i' is different in each block.
 // above code is same as :-
 function test_2() {
-    for(var i = 0; i<3; i++) {
+    for (var i = 0; i < 3; i++) {
         let j = i;
         setTimeout(function exec() {
             console.log(`j : ${j} ---- i : ${i}`);
-        }, i*1000);
+        }, i * 1000);
     }
 }
 test_2();
@@ -187,19 +205,21 @@ test_2();
 // j : 0 ---- i : 3
 // j : 1 ---- i : 3
 // j : 2 ---- i : 3
-// Reason : here closure remembers the block scope of variable 'j' bcz of 'let'. 
+// Reason : here closure remembers the block scope of variable 'j' bcz of 'let'.
 //          every time a new block is created. everytime the loop runs a new block is created
 //          and the value of 'j' is different in each block. And 'i' is function scope.
 ```
-- eg 3:-
+
+-   eg 3:-
+
 ```js
 const a = (function fun() {
     let counter = 0;
     return function gun() {
-        counter += 1;   // here it remembers its scope in fun() function block. 
-                        // so it takes its value from that scope and adds 1 to it everytime.
+        counter += 1; // here it remembers its scope in fun() function block.
+        // so it takes its value from that scope and adds 1 to it everytime.
         return counter;
-    }
+    };
 })();
 console.log(a);
 console.log(a());
