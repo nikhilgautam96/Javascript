@@ -1,3 +1,7 @@
+# Contents :
+
+1. [Introduction to JS.](../Notes/_1_Intermediate_js/_00_Introduction.md)
+
 # What -> Where -> How -> How_Not :
 
 -   **_`We will learn JS ina a (What, Where, How and How_not) way.`_**
@@ -90,7 +94,3 @@ counter1.increment(); // Output: Count: 2
 const counter2 = new Counter();
 counter2.increment(); // Output: Count: 1 (independent instance)
 ```
-
-# Contents :
-
-1. [Introduction to JS.](../Notes/_1_Intermediate_js/_00_Introduction.md)
