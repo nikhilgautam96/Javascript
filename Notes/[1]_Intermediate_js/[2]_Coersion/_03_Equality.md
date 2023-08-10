@@ -1,4 +1,5 @@
 ## `===` Strict equality operator :-
+
 ```JS
 Comparison (x === y) :-
 
@@ -24,6 +25,7 @@ if(typeof(x) === typeof(y)) {
 ```
 
 ### SameValueNonNumber(x, y) :-
+
 ```JS
 Assert -: typeof(x) === typeof(y)
 if(typeof(x) is undefined) {
@@ -56,11 +58,12 @@ if(typeof(x) is undefined) {
 ```
 
 ## `==` Abstract equality operator :-
+
 ```JS
 if (typeof(x) === typeof(y)) {
     return `result of performing StrictEqualityComparison x === y`;
 } else if((x === "null" && y === "undefined") || (x === "undefined" && y === "null")) {
-    return return true;
+    return true;
 } else if(typeof(x) === "number" && typeof(y) === "string") {
     return "result of (x == ToNumber(y))";
 } else if(typeof(x) === "string" && typeof(y) === "number") {
