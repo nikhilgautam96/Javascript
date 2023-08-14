@@ -8,7 +8,7 @@
 -   Inside a function `var` gets `function scope` whether it is inside a block or not.
 
 ```js
-// Iside a "function" var will always get the function scope whether it is inside a block or not.
+// Inside a "function" var will always get the function scope whether it is inside a block or not.
 consumer = 'nikhil';
 function p() {
     console.log(consumer); // undefined

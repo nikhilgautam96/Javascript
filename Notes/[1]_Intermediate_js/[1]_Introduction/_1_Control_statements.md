@@ -2,7 +2,7 @@
 
 ## 1. Conditional Statements :
 
-1. `if-else`
+1. `if-else` : go with if-else if we have more than 1 level of nesting.
 2. `switch case`
 
 -   ```JS
@@ -31,7 +31,7 @@
       }
     ```
 
-3. `ternary operators`
+3. `ternary operators` : go with ternary if we have only 1 level of condition to check. nesting is not readble here.
 
 ## 2. Iteration Statements :
 

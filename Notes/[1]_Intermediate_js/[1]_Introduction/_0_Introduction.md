@@ -42,6 +42,9 @@
     -   Non-Primivitive :
         1. `Object`.
 
+-   2.  `array`.
+    3.  `function`.
+
 -   `NOTE` : JS does not differentiate between character and string. ie - it does not has any seperate type as character.
 
 ## Program vs Process :-
