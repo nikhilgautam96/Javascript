@@ -13,26 +13,26 @@
 11. Control Statements.
 12. NaN.
 13. Coersion.
-14. Abstract Equality.
+14. Abstract Operations.
+15. Functions.
 
 # Topics to cover :
 
 8. Closure
-9. function types
-10. try | catch | finally.
-11. Strict mode.
+9. try | catch | finally.
+10. Strict mode.
 
-12. Array
-13. String
-14. Object
-15. Primitive(value type) | non-primitive(reference type)
-16. pass by value | pass by reference
-17. Deep and Shallow Copy
-18. Equality check of reference types.(like objects, arrays).
-19. IIFE
-20. Object prototype.
-21. call(), bind(), apply().
-22. map(), filter(), reduce().
+11. Array
+12. String
+13. Object
+14. Primitive(value type) | non-primitive(reference type)
+15. pass by value | pass by reference
+16. Deep and Shallow Copy
+17. Equality check of reference types.(like objects, arrays).
+18. IIFE
+19. Object prototype.
+20. call(), bind(), apply().
+21. map(), filter(), reduce().
 
 ES6 brought :-
 

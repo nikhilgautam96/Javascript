@@ -62,6 +62,18 @@ fun();
 // console.log(x);         // "ReferenceError: x is not defined"
 ```
 
+## Local Scope :-
+
+-   eg :-
+
+```js
+let func = function demo() {
+    console.log('function is :', demo); // here it is accessible so we see no error.
+};
+// Here `demo` has scope within the `func` variable.
+demo(); // doing this throws error. "demo is not defined".
+```
+
 ## `Block Scope` :-
 
 -   ```JS
