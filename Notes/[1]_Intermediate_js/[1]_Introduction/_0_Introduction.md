@@ -44,6 +44,7 @@
 
 -   2.  `array`.
     3.  `function`.
+-   both array and functions are objects underneath. we can see it by doing `__proto__.__proto__` on them. as we get `[Object: null prototype] {}`.
 
 -   `NOTE` : JS does not differentiate between character and string. ie - it does not has any seperate type as character.
 
@@ -85,6 +86,14 @@
 Number(9).toString();   // here also we are explicitly converting value to Number type using wrapper class "Number".
 
 "10".toString();        // this does not need boxing.
+```
+
+-   by default, When you access the `__proto__` property on a primitive like a number (x being 10 in your example), JavaScript might temporarily wrap the primitive in a corresponding wrapper object to provide access to properties and methods. This behavior can vary depending on the JavaScript engine and environment.
+    eg : -
+
+```js
+let x = 10;
+console.log(x.__proto__.__proto__); // [Object: null prototype] {}
 ```
 
 ## Different ways to show/print output in JS :-
