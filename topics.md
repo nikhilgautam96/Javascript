@@ -7,13 +7,19 @@
 5. var, let, const
 6. Error (ReferenceError | TypeError | SyntaxError)
 7. Hoisting.
+8. Equality (Strict | Abstract).
+9. Deep Compare (Arrays | Objects) using (JSON.stringify() | lodash(\_.isEqual()) | deep-equal(deepEqual()))
+10. Operators.
+11. Control Statements.
+12. NaN.
+13. Coersion.
+14. Abstract Equality.
 
 # Topics to cover :
 
 8. Closure
 9. function types
 10. try | catch | finally.
-
 11. Strict mode.
 
 12. Array
@@ -27,10 +33,6 @@
 20. Object prototype.
 21. call(), bind(), apply().
 22. map(), filter(), reduce().
-
-Q. If we have app that increments/decrements the value of a element on clicking the button element.
-So can we say that the button element has exposed the 'onClick()' function to the outer world, which in return accesses the private methods that is responsible for updating the value of the element. just like in closure, we return a function and tge function can access the private members of the parent.
-So we always expose the event functions (like - 'onClick()') only to the outer world??
 
 ES6 brought :-
 

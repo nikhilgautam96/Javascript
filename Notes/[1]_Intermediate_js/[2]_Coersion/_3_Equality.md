@@ -62,7 +62,7 @@ if(typeof(x) is undefined) {
 ```JS
 if (typeof(x) === typeof(y)) {
     return `result of performing StrictEqualityComparison x === y`;
-} else if((x === "null" && y === "undefined") || (x === "undefined" && y === "null")) {
+} else if((x === "null" && y === "undefined") || (x === "undefined" && y === "null") || (x === "null" && y === "null") || (x === "undefined" && y === "undefined")) {
     return true;
 } else if(typeof(x) === "number" && typeof(y) === "string") {
     return "result of (x == ToNumber(y))";
@@ -79,4 +79,88 @@ if (typeof(x) === typeof(y)) {
 } else {
     return false;
 }
+```
+
+# Deep Compare JS Objects :-
+
+1. `JSON.stringify() method` :
+
+-
+
+```js
+const person1 = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 35,
+};
+const person2 = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 35,
+};
+const person3 = {
+    age: 35,
+    firstName: 'John',
+    lastName: 'Doe',
+};
+JSON.stringify(person1) === JSON.stringify(person2); // true
+// FLAW |==> if order of properties is changed then it returns false.
+JSON.stringify(person1) === JSON.stringify(person3); // false
+```
+
+2. `Comparisons using Lodash library` or `deep-equal library` :
+
+-
+
+```js
+// "npm i lodash"
+// "npm i deep-equal"
+const _ = require('lodash');
+const deepEqual = require('deep-equal');
+const person1 = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 35,
+};
+
+const person2 = {
+    firstName: 'John',
+    lastName: 'Doe',
+    age: 35,
+};
+const person3 = {
+    age: 35,
+    firstName: 'John',
+    lastName: 'Doe',
+};
+console.log(_.isEqual(person1, person2)); // true
+console.log(_.isEqual(person1, person3)); // true
+
+console.log(deepEqual(person1, person2)); // true
+console.log(deepEqual(person1, person3)); // true
+```
+
+# Deep Compare JS arrays :-
+
+1. `JSON.stringify() method` :
+
+```js
+let i = [1, true, 'a'];
+let j = [1, true, 'a'];
+let k = [1, 'a', true];
+console.log(JSON.stringify(i) === JSON.stringify(j)); // true
+console.log(JSON.stringify(j) === JSON.stringify(k)); // false
+```
+
+2. `Comparisons using Lodash library` or `deep-equal library` :
+
+```js
+let i = [1, true, 'a'];
+let j = [1, true, 'a'];
+let k = [1, 'a', true];
+console.log(_.isEqual(i, j)); // true
+console.log(_.isEqual(j, k)); // false
+
+console.log(deepEqual(i, j)); // true
+console.log(deepEqual(j, k)); // false
 ```

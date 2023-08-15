@@ -1,13 +1,84 @@
 ## Abstract Operations :-
-- These operations are not a part of the ECMAScript language.
-- As an end user we cannot use/call these operations. like we can use console.log() but not these.
-- They are defined solely to aid the specification of the semantics of the ECMAScript language.
 
-## `ToPrimitive ( input [ , preferredType ] )`  :-
--  It takes an input `argument` and tries to convert it into a `non-onject type(or primitive type)`.
-If it can't convert it, it can throw error.
-- It takes one more optional parameter as `prefferedType`. If we have 2 or more possible conversions then this optional parameter comes into picture.
-- It internally calls `OrdinaryToPrimitive ( O, hint )`.
+-   These operations are not a part of the ECMAScript language.
+-   As an end user we cannot use/call these operations. like we can use console.log() but not these.
+-   They are defined solely to aid the specification of the semantics of the ECMAScript language.
+
+```js
+use `-`  to mimic;
+ToNumber(argument) {
+    return {
+        undefined: NaN,
+        null: 0,
+        true: 1,
+        false: 0,
+        'abcd': NaN,
+        '10': 10,
+        Symbol(10): TypeError,
+        {}: NaN  __|__     ToPrimitive(argument, hint = Number) ==> return ToNumber(primValue)
+    }
+}
+```
+
+```js
+use `!`  to mimic;
+ToBoolean(argument) {
+    return {
+        undefined: false,
+        null: false,
+        true: true,
+        false: false,
+        0, -0, NaN: false,
+        -5, 7: true,
+        '': false,
+        'abc': true,
+        Symbol: true,
+        {}, {key: 'value'} : true
+    }
+}
+```
+
+```js
+use `+`  to mimic;
+ToString(argument) {
+    return {
+        undefined:  return "undefined",
+        null:  return "null",
+        true: return 'true',
+        false: return 'false',
+        number: return NumberToString(argument);
+        string: return argument;
+        symbol: throw "TypeError";
+        object: primValue = ToPrimitive(argument, hint = string) ==> return ToString(primValue);
+    }
+}
+```
+
+```js
+use `+`  to mimic;
+ToPrimitive ( input [ , preferredType ] ) {
+    let hint;
+    if(preferredType == "is not present") {
+        hint = "default";
+    } else if("prefferedType" == "string") {
+        hint = "string";
+    } else if("prefferedType" == "number") {
+        hint = "number";
+    }
+    if(hint == "default") {
+        hint = "number";
+    }
+    OrdinaryToPrimitive ( input, hint )
+}
+```
+
+## `ToPrimitive ( input [ , preferredType ] )` :-
+
+-   It takes an input `argument` and tries to convert it into a `non-onject type(or primitive type)`.
+    If it can't convert it, it can throw error.
+-   It takes one more optional parameter as `prefferedType`. If we have 2 or more possible conversions then this optional parameter comes into picture.
+-   It internally calls `OrdinaryToPrimitive ( O, hint )`.
+
 ```JS
 if(input == object) {
     let hint;
@@ -26,7 +97,9 @@ if(input == object) {
     return input;     // "input" is already a primitive.
 }
 ```
-### `OrdinaryToPrimitive ( O, hint )`   :-
+
+### `OrdinaryToPrimitive ( O, hint )` :-
+
 ```JS
 assert(typeof(O) === "object");
 assert(typeof(hint) === "string");
@@ -36,7 +109,7 @@ if(hint == string || hint == number) {
     if(hint === "string") {
         methodNames = ["toString()", "valueOf()"];
         // 1st apply "toString()"
-            // if ("toString()" gives an "object") { 
+            // if ("toString()" gives an "object") {
                     // then "valueOf()" is applied.
                         // if("valueOf()" gives "non-object") { throw error; }
                         // else --> return result
@@ -45,7 +118,7 @@ if(hint == string || hint == number) {
     } else if(hint === "number") {
         methodNames = ["valueOf()", "toString()"];
         // 1st apply "valueOf()"
-            // if ("valueOf()" gives an "object") { 
+            // if ("valueOf()" gives an "object") {
                     // then "toString()" is applied.
                         // if("toString()" gives "non-object") { throw error; }
                         // else --> return result.
@@ -66,7 +139,9 @@ console.log(y.valueOf());       // [ 1, 2, 'nikhil', true, null, undefined, 5.5,
 ```
 
 ## `ToBoolean ( argument )` :-
-- `Logical NOT Operator (!)` can be used to implement this operation.
+
+-   `Logical NOT Operator (!)` can be used to implement this operation.
+
 ```JS
 let type = typeof(argument);
 switch(type) {
@@ -95,8 +170,10 @@ switch(type) {
 }
 ```
 
-## `ToNumber ( argument )`  :-
-- we can use "-" operation to mimic this operation.
+## `ToNumber ( argument )` :-
+
+-   we can use "-" operation to mimic this operation.
+
 ```JS
 ToNumber(argument) {
     let type = typeof argument;
@@ -126,7 +203,8 @@ ToNumber(argument) {
 }
 ```
 
-## `ToString ( argument )`  :-
+## `ToString ( argument )` :-
+
 ```JS
 let type = typeof(argument)
 switch(type) {

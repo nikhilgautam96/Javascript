@@ -32,6 +32,7 @@ a = 10; // SyntaxError: Missing initializer in const declaration
 
 3. `TypeError` :
 
+-   Thrown in execution phase, so lines before the error line will execute.
 -   eg :-
 
 ```js
