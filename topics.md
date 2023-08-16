@@ -15,13 +15,14 @@
 13. Coersion.
 14. Abstract Operations.
 15. Functions.
+16. Closure
+17. Callbacks.
+18. this.
 
 # Topics to cover :
 
-8. Closure
 9. try | catch | finally.
 10. Strict mode.
-
 11. Array
 12. String
 13. Object

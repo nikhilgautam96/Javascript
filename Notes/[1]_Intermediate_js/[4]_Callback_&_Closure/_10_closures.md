@@ -23,134 +23,134 @@ console.log('Ending');
 // completed  assignments
 ```
 
--   In closure the the nested function does not just remembers the value of variable but actually it remembers the variable itself(ie. from which scope the variable is coming) and so if we change the value of the variable we can see the changed value is reflected.
+-   In closure, the nested function does not just remember the value of variable but actually it remembers the variable itself(ie. from which scope the variable is coming) and so if we change the value of the variable we can see the changed value is reflected.
 
-    -   eg 1 :-
+-   eg 1 :-
 
-    ```js
-    function todo(task) {
-        console.log('started todo');
-        setTimeout(function fun() {
-            console.log('Completed ', task);
-        }, 5000);
-        task = 'Nikhil';
-        console.log('completed todo');
-    }
-    console.log('Starting');
-    todo('assignment');
-    console.log('Ending');
-    // OUTPUT :
-    // Starting
-    // started todo
-    // completed todo
-    // Ending
-    // Completed  Nikhil
-    ```
+```js
+function todo(task) {
+    console.log('started todo');
+    setTimeout(function fun() {
+        console.log('Completed ', task);
+    }, 5000);
+    task = 'Nikhil';
+    console.log('completed todo');
+}
+console.log('Starting');
+todo('assignment');
+console.log('Ending');
+// OUTPUT :
+// Starting
+// started todo
+// completed todo
+// Ending
+// Completed  Nikhil
+```
 
-    -   eg 2 :-
+-   eg 2 :-
 
-    ```js
-    function a(name) {
-        name = 'Gautam';
-        return function b() {
-            console.log(name);
-        };
-    }
+```js
+function a(name) {
+    name = 'Gautam';
+    return function b() {
+        console.log(name);
+    };
+}
 
-    let x = a('Nikhil');
-    console.log(x);
-    x();
-    // OUTPUT :
-    // [Function: b]
-    // Gautam
-    ```
+let x = a('Nikhil');
+console.log(x);
+x();
+// OUTPUT :
+// [Function: b]
+// Gautam
+```
 
-    -   eg 3 :-
+-   eg 3 :-
 
-    ```js
-    function fun() {
-        let name = 'Harshit';
+```js
+function fun() {
+    let name = 'Harshit';
 
-        function callback(params) {
-            console.log(college);
-            console.log(name);
-        }
-
-        return callback;
-    }
-    let x = fun();
-    x();
-    var college = 'IIT Delhi';
-    var name = 'Nikhil';
-    x();
-    // OUTPUT :
-    // undefined
-    // Harshit
-    // IIT Delhi
-    // Harshit
-    ```
-
-    -   eg 4 :-
-
-    ```js
-    function fun() {
-        // let name = "Harshit";
-        setTimeout(function callback(params) {
-            console.log(college);
-            console.log(name);
-        }, 5000);
-        // let name = "Harshit";
-        name = 'Harshit';
-    }
-    console.log(fun());
-    var college = 'IIT Delhi';
-    var name = 'Nikhil';
-
-    // OUTPUT :
-    // undefined
-    // IIT Delhi
-    // Nikhil
-    ```
-
-    -   eg 5 :-
-
-    ```js
-    function fun() {
-        // let name = "Harshit";
-        setTimeout(function callback(params) {
-            console.log(college);
-            console.log(name);
-        }, 5000);
-        let name = 'Harshit';
-        // name = "Harshit";
-    }
-    console.log(fun());
-    var college = 'IIT Delhi';
-    var name = 'Nikhil';
-
-    // OUTPUT :
-    // undefined
-    // IIT Delhi
-    // Harshit
-    ```
-
-    -   eg 6 :-
-
-    ```js
-    function fun(task1, task2) {
-        task1 = 'Nikhil';
-        setTimeout(function gun() {
-            console.log('completed', task1);
-        }, 2000);
-        task1 = task2;
-        task2 = 'Gautam';
+    function callback(params) {
+        console.log(college);
+        console.log(name);
     }
 
-    fun(12, 34);
-    // completed 34
-    ```
+    return callback;
+}
+let x = fun();
+x();
+var college = 'IIT Delhi';
+var name = 'Nikhil';
+x();
+// OUTPUT :
+// undefined
+// Harshit
+// IIT Delhi
+// Harshit
+```
 
--   `How actually the variables still persist even after todo is completed and removed from call stack??`
+-   eg 4 :-
+
+```js
+function fun() {
+    // let name = "Harshit";
+    setTimeout(function callback(params) {
+        console.log(college);
+        console.log(name);
+    }, 5000);
+    // let name = "Harshit";
+    name = 'Harshit';
+}
+console.log(fun());
+var college = 'IIT Delhi';
+var name = 'Nikhil';
+
+// OUTPUT :
+// undefined
+// IIT Delhi
+// Nikhil
+```
+
+-   eg 5 :-
+
+```js
+function fun() {
+    // let name = "Harshit";
+    setTimeout(function callback(params) {
+        console.log(college);
+        console.log(name);
+    }, 5000);
+    let name = 'Harshit';
+    // name = "Harshit";
+}
+console.log(fun());
+var college = 'IIT Delhi';
+var name = 'Nikhil';
+
+// OUTPUT :
+// undefined
+// IIT Delhi
+// Harshit
+```
+
+-   eg 6 :-
+
+```js
+function fun(task1, task2) {
+    task1 = 'Nikhil';
+    setTimeout(function gun() {
+        console.log('completed', task1);
+    }, 2000);
+    task1 = task2;
+    task2 = 'Gautam';
+}
+
+fun(12, 34);
+// completed 34
+```
+
+-   `How actually the variables still persist even after function is completed and removed from call stack??`
     -   JS maintains & manages a seperate **_`closure execution context`_**. there it maintains all the variables(along with its scope) and not the values.
 -   eg 1 :-
 
@@ -191,6 +191,7 @@ function test_1() {
 // Reason : here closure remembers the block scope of variable 'i' bcz of 'let'.
 //          every time a new block is created. everytime the loop runs a new block is created
 //          and the value of 'i' is different in each block.
+
 // above code is same as :-
 function test_2() {
     for (var i = 0; i < 3; i++) {
@@ -208,6 +209,22 @@ test_2();
 // Reason : here closure remembers the block scope of variable 'j' bcz of 'let'.
 //          every time a new block is created. everytime the loop runs a new block is created
 //          and the value of 'j' is different in each block. And 'i' is function scope.
+```
+
+-   **_VIMP : `demonstrate function scope without using 'let, const' keyword.`_**
+
+```js
+function test() {
+    for (var i = 0; i<3; i++) {
+        function wrap(x) {
+            setTimeout(() => {
+                console.log(x, i);
+            }, i\*1000)
+        }
+        wrap(i);
+    }
+}
+test();
 ```
 
 -   eg 3:-
@@ -230,4 +247,21 @@ console.log(a());
 // 1
 // 2
 // 3
+```
+
+## Test your Knowledge :
+
+```js
+closure: function fun() {
+    let x = 10;
+    return function () {
+        console.log(x++);
+    };
+}
+var a = fun();
+var b = fun();
+a(); // 10
+a(); // 11
+b(); // 10
+b(); // 11
 ```

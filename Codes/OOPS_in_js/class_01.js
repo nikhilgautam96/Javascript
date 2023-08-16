@@ -1,4 +1,5 @@
 class Product {
+    static genre = 'Electronic';
     age = 11;
     constructor(name, price) {
         // Constructor is used to create new real life instances of a calss called an object.
@@ -9,18 +10,17 @@ class Product {
     }
     // member functions
     displayProduct() {
-        console.log(this.name, this.age, this.brand, this.price)
+        console.log(this.name, this.age, this.brand, this.price);
     }
-    buyProduct() {
-        
-    }
+    buyProduct() {}
 }
 
-let iphone = new Product("Iphone 14 pro", 114000);
-let macbook = new Product("Macbook pro", 154000);
+let iphone = new Product('Iphone 14 pro', 114000);
+let macbook = new Product('Macbook pro', 154000);
 
 console.log(iphone, macbook);
-// Product { age: 11, name: 'Iphone 14 pro', price: 114000, brand: 'Nike' } 
+// Product { age: 11, name: 'Iphone 14 pro', price: 114000, brand: 'Nike' }
 // Product { age: 11, name: 'Macbook pro', price: 154000, brand: 'Nike' }
 
 iphone.displayProduct();
+// console.log(iphone.prototype.genre);

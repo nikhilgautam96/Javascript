@@ -1,21 +1,23 @@
-# This in JS :
+# In NodeJs console :-
 
 ## Inside a `function (annonymous|named|IIFE)` `this` will point to the immediate parent of that function :
 
 -   if immediate parent is an object --> point to object.
 -   if immediate parent is an function(arrow|annonymous|named|IIFE) --> point to the `Global Object`.
--   if no parent --> `Global object`.
+-   if no parent (parent is global object / window object) --> `Global object`.
 
 ## `this` inside of `arrow functions` :
 
 **_ Arrow functions were introduced to keep track of user defined parent objects. _**
 
--   looks for its parent function and the moment it finds a parent function, it point to the this of that parent function.
--   ie:- {
-    -   1. If parent point to 'Global' it will point to 'Global. |
-    -   2. If parent points to an 'object' it will point to same 'object'.|
-           }
--   if no parent found, point to --> '{}' (bcz this is what this in global points to.)
+-   It takes its `this` from its outer normal function.
+-   It looks for its parent function and the moment it finds a parent function, it point to the this of that parent function.
+-   ie:-
+
+    -   1. If parent point to 'Global' it will point to 'Global.
+    -   2. If parent points to an 'object' it will point to same 'object'.
+
+-   If no parent found (parent is global object / window object), point to --> '{}' (bcz this is what this in global points to.)
 
 1. Arrow functions were introduced in JavaScript to provide a more concise syntax for writing functions, particularly for short, inline functions. They offer a more compact and visually cleaner way to write functions, especially when the function body consists of a single expression. Arrow functions also have some unique scoping behavior compared to traditional function expressions.
 

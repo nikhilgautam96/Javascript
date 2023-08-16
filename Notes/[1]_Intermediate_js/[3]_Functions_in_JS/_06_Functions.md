@@ -97,7 +97,7 @@ console.log(x(), typeof x);
 
 ## Higher Order functions :-
 
--   A function that takes another function as a argument or returns another function is actually a Higher order function.
+-   A function that accepts another function as a argument or returns another function is actually a Higher order function.
 
 ```js
 function fun(x) {
