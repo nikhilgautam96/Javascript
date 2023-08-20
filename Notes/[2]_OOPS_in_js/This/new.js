@@ -1,17 +1,3 @@
-## `new` Keyword :
-
--   The new keyword executes a 4 step process :-
-
-    1. It creates a brand new empty JS object.
-    2. It does a process of Linking.
-        - It links the JS object to the `unnamed object` pointed by the `function's prototype property`.
-    3. It calls the function with the this property assigned to the empty object it created before.
-    4. The function execution starts. (the this keyword will point to the empty object created at the calling site. ).
-    5. At last, if the function doesn't return any specific object, then it automatically returns `this`. Otherwise it returns the object returned by us. NOTE : w/o new keyword function returns 'undefined' by default.
-
--   ![Internal_JS_protypal_chaining](../../Images/protypal_chaining_internal_js.png)
-
-```js
 function fun() {
     this.name = 'nikhil';
 }
@@ -65,9 +51,3 @@ console.log(obj.__proto__.__proto__ === Object.prototype); // true.
 console.log(obj.__proto__.__proto__ === fun.__proto__); // false : `fun()` doesn't have such linkage. fun()'s proto has.
 // 4.
 console.log(obj.__proto__.__proto__ === fun.prototype.__proto__); // true.
-```
-
--   It creates a new object of the constructor functions or simply functions and then binds that object to the this keyword.
--   Any different object we create of the same function will all inherit from the same object that we call as `[function].prototype = { ... }`
--   All static members are put inside of the `[function].prototype = { ... }` object.
--   If we want any property to be specific to a particular instance, we use `this` keyword.

@@ -5,12 +5,16 @@
 ## 1. In global code :
 
 -   points to --> `Window {object}`.
+-   doesn't matter if it is inside of any block or not.
 
 ```js
 // SET 1 :
 console.log(this); // {} | Window' object
 this.a = 20;
 console.log(this, this.a); // {a: 20}, 20 | Window' object, 20
+if (true) {
+    console.log(this, this.a); //Window' object, 20
+}
 ```
 
 ## 2. Inside a `function ( annonymous | named | IIFE | arrow )` with no parent :
@@ -25,8 +29,11 @@ console.log(this, this.a); // {a: 20}, 20 | Window' object, 20
 // SET 2 :
 function fun() {
     console.log('fun', this); // Window' object
+    // if we add anything to this here, we can see it in global code window object.
+    this.name = 'nikhil';
 }
 fun();
+console.log(this.name, '--', name); // nikhil
 
 const gun = () => {
     console.log('gun', this); // Window' object

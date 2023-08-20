@@ -16,9 +16,10 @@
 ## Javascript :-
 
 1. It is a `multipurpose(used for web apps, mobile apps, etc.)` and `multi-paradigm(it supports different styles of programming - functional progamming, object oriented programming, procedural programming, etc.)` programming language(bcz it has decision making capability).
-2. It is not a purely scripting language like the shell script, rather a `general-purpose programming language`.
-3. It's official name is `EcmaScript`. Developed in 1995 by Brendan Eich became ECMA standard in 1997.
-4. **`Apart from the primitive types, everything in JS is an object.`**
+2. JS is `Single Threaded`.
+3. It is not a purely scripting language like the shell script, rather a `general-purpose programming language`.
+4. It's official name is `EcmaScript`. Developed in 1995 by Brendan Eich became ECMA standard in 1997.
+5. **`Apart from the primitive types, everything in JS is an object.`**
 
 ## 4 Pillars of JS :-
 

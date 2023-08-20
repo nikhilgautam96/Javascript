@@ -14,10 +14,17 @@
 12. NaN.
 13. Coersion.
 14. Abstract Operations.
-15. Functions.
+15. Functions. (Factory | Constructor)
 16. Closure
 17. Callbacks.
 18. this.
+
+# Hot Topics :
+
+14. Primitive(value type) | non-primitive(reference type)
+15. Prototype | prototype inheritance | prototype chaining
+16. Factory vs Constructor Functions
+17. pass by value | pass by reference
 
 # Topics to cover :
 
@@ -26,14 +33,14 @@
 11. Array
 12. String
 13. Object
-14. Primitive(value type) | non-primitive(reference type)
-15. pass by value | pass by reference
-16. Deep and Shallow Copy
-17. Equality check of reference types.(like objects, arrays).
-18. IIFE
-19. Object prototype.
-20. call(), bind(), apply().
-21. map(), filter(), reduce().
+
+14. Deep and Shallow Copy
+15. Equality check of reference types.(like objects, arrays).
+16. IIFE
+17. Object prototype.
+18. call(), bind(), apply().
+19. map(), filter(), reduce().
+20. Currying.
 
 ES6 brought :-
 
