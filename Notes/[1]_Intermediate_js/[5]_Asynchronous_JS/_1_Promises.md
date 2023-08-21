@@ -6,10 +6,12 @@
 -   we also attach the functionality that we want to defer until the future task is done.
 -   And promise automatically handles execution of this functionality.
 -   Promises do 2 things one inside JS and 1 outside JS.
-    1. It signs up the process required to run in the runtime & gives a placeholder in js, which has a value property.
+    1. It signs up the process required to run by the runtime-api's & gives a placeholder in js, which has a value property.
     2.
 -   `A promise is an object that is used for the eventual results of a deferred (and possibly asynchronous) computation.`
--   `Any promise object is in one three mutually exclusive states : fulfilled, rejected & pending.`
+-   Any promise object is in one of the three mutually exclusive states :
+    |1. <span style="color:Yellow;"> pending</span> |2. <span style="color:Green;"> fulfilled</span> | 3. <span style="color:Red;"> rejected</span>|
+    |---------------|--------------|-------------|
 -   `A promise is said to be settled/resolved if it is not pending, ie. it is either fulfilled or rejected.`
 -   `An unresolved promise is always in the pending state.`
 
@@ -23,7 +25,7 @@
             3. `Rejected state` : gives a notion of ERROR.
     2. `Value`
         - when status of the promise is pending, the value property is `undefined`.
-        - The moment promise is resolved(status --> fulfilled/rejected), the value property is updated from undefined to the new value (this value we can consider as the `returned value / resolved value`).
+        - The moment promise is resolved(status --> fulfilled/rejected), the value property is updated from undefined to the new value (this value, we can consider as the `returned value / resolved value`).
         - so the value property acts as a placeholder till the time promise finishes.
     3. `onFullfillment`
         - This is an array, which contains functions(can be multiple as well) that we attach to our promise object.
@@ -40,7 +42,7 @@
 
 -   To create a promise call the promise constructor.
 -   The promise constructor takes a callback as an argument.
--   The callback passed expets 2 arguments `(resolve, reject)`.
+-   The callback passed expects 2 arguments `(resolve, reject)`.
 -   inside the constructor write your code logic.
 -   if we want to return something on SUCCESS, then call the resolve function with whatever value you want to return.
 -   eg :-
@@ -52,7 +54,7 @@ function fetchData(url) {
         setTimeout(function process() {
             let data = 'Dummy data';
             console.log('completed fetching the data');
-            // somehow e need to return the data? - TODO
+            // somehow we need to return the data? - TODO
             resolve(data); // return some data on SUCCESS.
         });
     });
@@ -64,9 +66,7 @@ function fetchData(url) {
 -   In consuming a promise, we avoid Inversion of control.
 -   whenever we call a function that returns a promise, we get a promise object that can be stored in any variable just like any other JS object.
 -   Q. will js wait for the promise to be resolved if it involves any asynchronous piece of code ?
-    -   JS will wait only if promise involves a synchronous piece of code, otherwise not.
-    -   ie. if we have `setTimeout()` in the callback provided to the promise constructor, it will be sent to `runtime` and execution of global code will continue.
-    -   but if we have suppose very long loop in the callback then js will wait till the loop finishes then it will continue with code execution inside the promise callback.
+    -   JS will wait only if promise involves a synchronous piece of code, otherwise not. - ie. if we have `setTimeout()` in the callback provided to the promise constructor, it will be sent to `runtime-api` and execution of global code will continue. - but if we have suppose very long loop in the callback then js will wait till the loop finishes then it will continue with code execution inside the promise callback.
 -   Technically when promise gets resolved we execute some functions.
 -   we can use `.then()` function on the promise object, to `bind/register` the functions we want to execute once we fulfill a promise.
 -   The `.then()` function will only be called when the `promise is fulfilled`.
@@ -109,7 +109,9 @@ function fetchData(url) {
     // completed timer
     ```
 
--   The `.then()` function takes callback function as an argument that we want to execute after promise fulfills, and the `argument function` takes `value` property as parameter.
+-   The `.then()` function takes 2 callback functions as argument, that we want to execute after promise settled (resolved or rejected), and the `argument function` takes `value` property as parameter.
+-   `SYNTAX : .then(onSuccess, onError);`
+-   `resolve / reject` are just a reference for the callback functions passed in `.then(onSuccess, onError)`.
 -   The `.then()` function itself returns a new promise by default, with the `[[PromiseResult]]: undefined`.
 -   If we return nothing from the callback function then a `default promise is created and returned with value undefined` and it will look something like;
 
@@ -222,7 +224,7 @@ console.log('End');
 //     It will be registered and since 'x' is already resolved 'exec_1()' will be queued in microtask queue.
 // pointer sees --> another callback exec_2() is to be registered in onfullfillment array of promise returned by .then() of 'x'.
 //     since the x.then() has not been executed yet so no promise is returned yet so this registration task is still pending.
-// pointer moves ahead --> sine event loop constantly checks if global code is exhausted.
+// pointer moves ahead --> since event loop constantly checks if global code is exhausted.
 // pointer sees --> another .then(callback exec_3()) is registered in onfullfillment array of 'x'
 //     It will be registered and since 'x' is already resolved 'exec_3()' will be queued in microtask queue.
 // Microtask Queue looks like --> [exec_1(), exec_2()]

@@ -165,6 +165,7 @@ console.log(x, arr);
 
 1. `callback hell`.
 
+-   To handle asynchronous tasks using callback, we write the tasks that we want to execute after a set of operations is done/completed inside of the callback. The callback function is called just after the set of operations/tasks is done/completed.
 -   Callback hell is a situation that arises when multiple asynchronous operations are nested within each other using callbacks, leading to deep and difficult-to-read code structures.
 -   eg :-
 
