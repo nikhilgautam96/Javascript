@@ -47,3 +47,11 @@ function p() {
 }
 p();
 console.log(consumer); // nikhil
+
+// ----------------------------------XXXXXXXXXX------------------------------------------ //
+var m = 'popo';
+var f0 = function () {
+    console.log('f0');
+};
+console.log(this.m); // popo
+console.log(this.f0); // ƒ (){console.log('f0');}

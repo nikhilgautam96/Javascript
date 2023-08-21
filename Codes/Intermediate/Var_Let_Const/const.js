@@ -38,3 +38,11 @@ const obj = {
 console.log('before', obj); // before { fname: 'nikhil', lname: 'gautam' }
 obj.fname = 'aditya';
 console.log('after', obj); // after { fname: 'aditya', lname: 'gautam' }
+
+// - Example
+const k = 'gg';
+let f2 = function () {
+    console.log('f2');
+};
+console.log(window.k); // undefined
+console.log(this.f2); // undefined

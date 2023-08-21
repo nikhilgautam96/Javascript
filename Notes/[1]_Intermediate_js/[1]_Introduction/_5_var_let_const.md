@@ -13,6 +13,17 @@
 
 ## **_`var`_** :-
 
+-   gets added to the `globalThis` or `window` object when declared in the global scope.
+
+```js
+var m = 'popo';
+var f0 = function () {
+    console.log('f0');
+};
+console.log(window.m); // popo
+console.log(this.f0); // ƒ (){console.log('f0');}
+```
+
 -   Hoisted but has value as `undefined` unless initialised.
 -   The var statement declares a `function-scoped` or `globally-scoped` variable, optionally initializing it to a value.
 -   Inside a function `var` gets `function scope` whether it is inside a block or not.
@@ -96,6 +107,17 @@ console.log(a); // 25
 ```
 
 ## **_`let`_** :-
+
+-   does not get added to the `globalThis` or `window` object when declared in the global scope.
+
+```js
+let l = 'pp';
+let f1 = function () {
+    console.log('f1');
+};
+console.log(window.l); // undefined
+console.log(this.f1); // undefined
+```
 
 -   Hoisted but stays in TDZ unless initialised.
 -   The `let` declaration always declares a `block-scoped` local variable.
@@ -195,6 +217,17 @@ let a = 15;
 ```
 
 ## **_`const`_** :-
+
+-   does not get added to the `globalThis` or `window` object when declared in the global scope.
+
+```js
+const k = 'gg';
+let f2 = function () {
+    console.log('f2');
+};
+console.log(window.k); // undefined
+console.log(this.f2); // undefined
+```
 
 -   Hoisted but stays in TDZ unless initialised.
 -   Block-scoped just like let.

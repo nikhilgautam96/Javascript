@@ -24,6 +24,7 @@ if (true) {
 -   anonymous --> `Window`
 -   arrow --> `Window`
 -   IIFE --> `Window`
+-   REASON : when we call a function from global scope say `fun()`, it actually is like `window.fun()`.
 
 ```js
 // SET 2 :
@@ -52,9 +53,10 @@ anonymous();
 
 ## 3. Inside a `function ( annonymous | named | IIFE | arrow )` with parent as `Object` :
 
+-   **_Object itself takes value of `this` from surrounding scope._**
 -   named --> `Parent object`
 -   anonymous --> `Parent object`
--   arrow --> `Window`
+-   arrow --> `Window` (`this` inside arrow func takes its value from `surrounding/Lexical scope`.)
 -   IIFE --> `Window`
 
 ```js
@@ -76,6 +78,37 @@ let obj = {
 obj.fun();
 obj.gun();
 obj.arrow();
+```
+
+```js
+// VVIMP example
+const ob1 = {
+    name: 'nik',
+    func() {
+        console.log(this); // ob1{name: 'nik', ...}
+        const ob2 = {
+            x: this, // ob1{name: 'nik', ...} ==> from surrounding scope ie. func() {}.
+        };
+        console.log(ob2.x); // ob1{name: 'nik', ...}
+        const arrow1 = () => {
+            console.log(this); // ob1{name: 'nik', ...} ==> from surrounding scope ie. func() {}.
+        };
+        arrow1();
+        function gunc() {
+            console.log(this); // window
+            const ob3 = {
+                y: this, // window ==> from surrounding scope ie. gunc() {}.
+            };
+            console.log(ob3.y); // window
+            const arrow2 = () => {
+                console.log(this); // window ==> from surrounding scope ie. gunc() {}.
+            };
+            arrow2();
+        }
+        gunc();
+    },
+};
+ob1.func();
 ```
 
 ## 4. Inside a `function ( annonymous | named | IIFE | arrow )` with parent as `function (any)` :
@@ -111,9 +144,68 @@ let obj = {
 obj.fun();
 ```
 
-## 5. Inside an `Object` directly :
+## 5. Inside a callback function :-
 
--   Points to --> `Window`
+-   Since callback functions run in an entirely different context, so the `this` inside of a callback function will not point to the parent function's `this`. but if we explicitly bind it to the parent's this the it will.
+-   Or, we can use arrow function, which by default points to the immediate parent's this.
+
+```js
+function fun() {
+    this.name = 'nikhil';
+    console.log(this);
+    setTimeout(function () {
+        console.log(this);
+    }, 1000);
+}
+fun();
+const obj = new fun();
+// OUTPUT :
+// window
+// fun {name: 'nikhil'}
+// 1 sec later
+// window
+// window
+
+function gun() {
+    this.name = 'nikhil';
+    console.log(this);
+    setTimeout(
+        function () {
+            console.log(this);
+        }.bind(this),
+        1000
+    );
+}
+gun();
+const obj = new gun();
+// OUTPUT :
+// window
+// gun {name: 'nikhil'}
+// 1 sec later
+// window
+// gun {name: 'nikhil'}
+
+function run() {
+    this.name = 'nikhil';
+    console.log(this);
+    setTimeout(() => {
+        console.log(this);
+    }, 1000);
+}
+run();
+const obj = new run();
+// OUTPUT :
+// window
+// run {name: 'nikhil'}
+// 1 sec later
+// window
+// run {name: 'nikhil'}
+```
+
+## 6. Inside an `Object` directly :
+
+-   Points to --> `Window`,
+-   bcz, the object declaration jus creates a block but anyways it is still in the global scope.
 
 ```js
 let obj = {
@@ -127,11 +219,11 @@ console.log(obj.prop); // Window
 console.log(obj.nestedObj.nestedProp); // Window
 ```
 
-## 6. Using `new` Keyword :
+## 7. Using `new` Keyword :
 
 -   Points to --> object of constructor being instantiated.
 -   We can't use `new` keyword with arrow functions :
-    -   REASON : Arrow functions do not have their own prototype property, making them unsuitable for use as constructors for creating instances.
+    -   REASON : `Arrow functions do not have their own prototype property`, making them unsuitable for use as constructors(constructor functions) for creating instances.
 
 ```js
 function fun() {
@@ -147,9 +239,14 @@ const gun = function () {
     console.log(this); // gun { a: 10, b: 20 }
 };
 const gunObj = new gun();
+
+const func = () => {
+    return 'hey';
+};
+func.prototype; // undefined
 ```
 
-## 7. Inside of a class :
+## 8. Inside of a class :
 
 -   points to the Object being referenced.
 

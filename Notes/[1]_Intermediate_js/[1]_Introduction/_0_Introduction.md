@@ -28,6 +28,21 @@
 3. `Asynchronous features`
 4. `Objects and classes`
 
+## Value(Primitives) vs reference(Objects) types :-
+
+-   `Value (Primitives) : when passed to function, they are passed as value.`
+    1. Number
+    2. String
+    3. Boolean
+    4. Null
+    5. Undefined
+-   `Reference (Objects) : when passed to function, they are passed as reference.`
+    1. Objects
+    2. Array
+    3. Function
+    4. Date
+    5. Regex, etc.
+
 ## Data types in JS :-
 
 -   The `8-different ECMAScript language types` are :

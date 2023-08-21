@@ -9,11 +9,11 @@ const player1 = {
     },
 };
 
-const obj = function () {
+const func = function () {
     console.log(this.getDetails());
 };
 // obj();
-let x = obj.bind(player1);
+let x = func.bind(player1); // bind returns a function.
 x();
 
 // 2.
@@ -30,3 +30,15 @@ console.log(unboundGetX()); // the function get invoked at global scope.
 const boundGetX = unboundGetX.bind(module);
 console.log(boundGetX()); // the function gets invoked at global scope but has the object 'module' binded to it.
 // OUTPUT : 42
+
+// 3.
+function fun() {
+    console.log(`I am ${this.name}.`);
+}
+function Batman() {
+    let name = 'Batman';
+    console.log('I am gun function.');
+    fun();
+}
+let y = fun.bind(Batman);
+y(); // I am Batman.  : bcz, this.name will give the name of `function Batman`.
