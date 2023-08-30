@@ -22,38 +22,67 @@
 20. Prototype | prototype inheritance | prototype chaining
 21. Factory vs Constructor Functions
 22. pass by value | pass by reference
+23. Array
+    1. Push method
+    2. Unshift method
+    3. Pop method
+    4. Shift method
+    5. IndexOf method
+    6. lastIndexOf method
+    7. Includes method
+    8. Find method
+    9. Concat method
+    10. Slice method
+    11. Spread operator
+    12. For loop in Array
+    13. For of loop in Arrays
+    14. ForEach method
+    15. Join method
+    16. Split method
+    17. splice
+    18. toString
+    19. Filter method
+    20. Map method
+    21. Reduce method
+    22. flat method
+    23. sort method
+24. map(), filter(), reduce().
 
 # Hot Topics :
 
-11. Array
-12. String
-13. Object
-14. rest and spread operator.
-15. Promises :
+12. call(), bind(), apply().
+
+13. String
+14. Object
+15. rest and spread operator.
+16. Promises :
     1. .catch()
     2. .then(onSuccess, onError).catch() chained together.
     3. .finally()
-16. Async Await.
+17. Async Await.
+18. Exception Handling.
+    1. try.
+    2. catch.
+    3. finally.
+19. Strict mode.
+20. Math functions.
+21. IIFE
 
 # Topics to cover :
 
-9. try | catch | finally.
-10. Strict mode.
+12. Deep and Shallow Copy
+13. Equality check of reference types.(like objects, arrays).
 
-11. Deep and Shallow Copy
-12. Equality check of reference types.(like objects, arrays).
-13. IIFE
 14. Object prototype.
-15. call(), bind(), apply().
-16. map(), filter(), reduce().
 
-17. Currying.
-18. Debouncing and Throtling.
+15. Currying.
+16. Debouncing and Throtling.
+17. Set & Get methods in JS objects.
 
-19. Fetch API.
-20. DOM API.
-21. private variables in JS.
-22. How to make our modern code work on older engines that don’t understand recent features yet?
+18. Fetch API.
+19. DOM API.
+20. private variables in JS.
+21. How to make our modern code work on older engines that don’t understand recent features yet?
     1. Transpilers : https://javascript.plainenglish.io/javascript-polyfills-for-interviews-f48c947a326
     2. Polyfills : Important Polyfills in JS ;
         1. Bind Polyfill
@@ -67,7 +96,7 @@
         9. Array.length
         10. All lodash utility functions.
         11. `new` keyword .
-23. Set & Get methods in JS.
+        12. Polyfill for Promise itself.
 
 ES6 brought :-
 

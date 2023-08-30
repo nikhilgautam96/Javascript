@@ -10,7 +10,7 @@ if(typeof(x) === typeof(y)) {
             // NOTE : "NaN" is the only number in JS that is not equal to itself.
         } else if((x === 0 && y === -0) || (x === -0 && y === 0)) {
             return true;
-        } else if(x == y) {
+        } else if(x === y) {
             // 'x' has same value as 'y'.
             return true;
         } else {

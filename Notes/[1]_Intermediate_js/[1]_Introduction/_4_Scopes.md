@@ -62,7 +62,7 @@ fun();
 // console.log(x);         // "ReferenceError: x is not defined"
 ```
 
-## Local Scope :-
+## `Local Scope` :-
 
 -   eg :-
 

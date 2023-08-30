@@ -120,32 +120,79 @@ console.log(student); // Nikhil
 // Split method : returns a array of strings seperated by splitting the initial string using a seperator.
 console.log(student.split('')); // [ 'N', 'i', 'k', 'h', 'i', 'l' ]
 
-// Filter method : returns a `shallow copy` of a portion of a given array, filtered down to just the elements from the given array that pass the test implemented by the provided function.
-// filter(callback, thisArg)
-// callback(element, index, array)
-const words = [
-    'spray',
-    'limit',
-    'elite',
-    'exuberant',
-    'destruction',
-    'present',
-];
-const result = words.filter((word) => word.length > 6);
-console.log(result); // [ 'exuberant', 'destruction', 'present' ]
+// Sort method :
+/*
+Returns the reference to the same array, now sorted (in-place).
+SYNTAX :
+    sort()
+    sort(compareFn) --> compareFn = (a, b) => a - b;
 
-const arrayLike = {
-    length: 3,
-    0: 'a',
-    1: 'b',
-    2: 'c',
-    3: 'a', // ignored by filter() since length is 3
-};
+`> 0`	  :   sort a after b, e.g. [b, a]
+`< 0`	  :   sort a before b, e.g. [a, b]
+`=== 0`	  :   keep original order of a and b
+`=== NaN` :   keep original order of a and b
 
-console.log(Array.prototype.filter.call(arrayLike, (x) => x <= 'b')); // [ 'a', 'b' ]
+*/
+let months = ['March', 'Jan', 11, 'Feb', 12, 'Dec'];
+months.sort((a, b) => {
+    // console.log(a, b, a < b);
+    return a < b ? -1 : 1;
+});
+console.log(months);
+// output: Array ["Dec", "Feb", "Jan", "March", 11, 12]
+const array1 = [1, 30, 4, 21, 100000];
+array1.sort();
+console.log(array1); // output: Array [1, 100000, 21, 30, 4]
 
-console.log([1, , undefined].filter((x) => x === undefined)); // [undefined]
-console.log([1, , undefined].filter((x) => x !== 2)); // [1, undefined]
-// Map method
+// toString() method :
+/*
+    The toString method of arrays calls `join()` internally, which joins the array and returns one string 
+    containing each array element separated by commas. 
+    If the join method is unavailable or is not a function, Object.prototype.toString is used instead, 
+    returning [object Array].
+*/
+const arr1 = [1, 2, , { x: 'nikhil' }, [25, 26], function () {}];
+console.log(arr1.toString());
+// 1,2,,[object Object],25,26,function () {}
+const arr2 = [];
+arr2.join = 1; // re-assign `join` with a non-function
+console.log(arr2.toString()); // [object Array]
+console.log(Array.prototype.toString.call({ join: () => 1 })); // 1
+console.log(Array.prototype.toString.call({ join: () => undefined })); // undefined
+console.log(Array.prototype.toString.call({ join: 'not function' })); // [object Object]
 
-// Reduce method
+// Splice method :
+/*
+    changes the contents of an array by removing or replacing existing elements 
+    and/or adding new elements `in place`.
+    
+    SYNTAX :
+        splice(start)
+        splice(start, deleteCount)
+        splice(start, deleteCount, item0)
+        splice(start, deleteCount, item0, item1)
+        splice(start, deleteCount, item0, item1, ...,  itemN)
+    RETURN Value :
+        - An array containing the deleted elements.
+        - If only one element is removed, an array of one element is returned.
+        - If no elements are removed, an empty array is returned.
+*/
+const monthsArr = ['Jan', 'March', 'April', 'June'];
+monthsArr.splice(1, 0, 'Feb');
+// Inserts at index 1
+console.log(monthsArr);
+// output: Array ["Jan", "Feb", "March", "April", "June"]
+
+monthsArr.splice(4, 1, 'May');
+// Replaces 1 element at index 4
+console.log(monthsArr);
+// output: Array ["Jan", "Feb", "March", "April", "May"]
+
+const myFish = ['angel', 'clown', 'drum', 'mandarin', 'sturgeon'];
+const removed = myFish.splice(3, 1);
+// myFish is ["angel", "clown", "drum", "sturgeon"]
+// removed is ["mandarin"]
+
+const arr = [1, , 3, 4, , 6];
+console.log(arr.splice(1, 2)); // [empty, 3]
+console.log(arr); // [1, 4, empty, 6]

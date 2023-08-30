@@ -112,7 +112,7 @@ console.log('TATA');
     1. It allows the use of **_`await`_** keyword.
     2. If you declare a function async, `it allows consumption of a promise using await`.
     3. An async function always converts your return value to a promise.
--   **_An `async` function is a function declared with the async keyword, and the `await` keyword is permistted within it. The async and await keywords enable asynchronous, promise-based behaviour to be written in a cleaner style, avoiding the need to explicitly configure promise chains._**
+-   **_An `async` function is a function declared with the async keyword, and the `await` keyword is permitted within it. The async and await keywords enable asynchronous, promise-based behaviour to be written in a cleaner style, avoiding the need to explicitly configure promise chains._**
 -   It is not mandatory to use asynchronous task in these functions it just permits the usage of it.
 -   eg :-
 
@@ -241,13 +241,13 @@ fun();
 async function fun() {
     console.log('start fun');
     let x = await 10;
-    console.log('x is :', x); // await always resolves the promise to its value.
+    console.log('x is :', x); // 10 : await always resolves the promise to its value.
     console.log('end fun');
     return x;
 }
 console.log('start');
 let val = fun();
-console.log(val);
+console.log('val is : ', val);
 val.then(function gun(value) {
     console.log('value is', value);
     console.log(val);
@@ -256,7 +256,7 @@ console.log('End');
 // OUTPUT :
 // start
 // start fun
-// Promise { <pending> }
+// val is :  Promise { <pending> }
 // End
 // x is : 10
 // end fun

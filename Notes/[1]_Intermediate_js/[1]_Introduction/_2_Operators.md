@@ -1,9 +1,5 @@
 # Operators in JS :-
 
-## Truthy and Falsy values :-
-
--
-
 ## `typeof <value>`
 
 -   it returns the type of any value in string format.
