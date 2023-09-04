@@ -14,3 +14,5 @@
 let x = 10;
 console.log(x.__proto__.__proto__); // [Object: null prototype] {}
 ```
+
+2. In industry where do we use `generator functions`, any exaple where it is being used.

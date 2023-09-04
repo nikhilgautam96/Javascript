@@ -1,0 +1,1 @@
+-   Improves code readibility and makes it easier for other developers to understand the code.

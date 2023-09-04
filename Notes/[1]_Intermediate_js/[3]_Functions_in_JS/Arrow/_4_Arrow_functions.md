@@ -3,7 +3,7 @@
 -   They are anonymous functions that don't have a prototype of its own.
 -   They inherit the prototype property from the enclosing parent function.
 
-    -   So, using new keyword for arrow function will give `TypeError`.
+    -   So, using `new` keyword for arrow function will give `TypeError`.
 
     ```js
     const Person(n) = (n) => {
@@ -62,12 +62,16 @@ ob1.func();
 
 ## Where not to use arrow functions :-
 
-1. `Object methods` : bcz, this will always point to surrounding and here it will be (window). [arrow_function_inside_object_as_object_methods](#arrow_bookmark)
+1. `Object methods`
 2. `Prototypes`
 3. `Constructors / Constructor functions`
 4. `Event handlers`
 
-### Never use arrow functions inside prototype of Constructor functions.
+### 1. Never use arrow in `Object methods` :
+
+-   bcz, this will always point to surrounding and here it will be (window). [arrow_function_inside_object_as_object_methods](#arrow_bookmark)
+
+### 2. Never use arrow functions inside prototype of Constructor functions :
 
 ```js
 function Person(n) {
@@ -76,7 +80,7 @@ function Person(n) {
 Person.prototype.talk = function () {
     return this;
 };
-Person.prototype.arrowTalk = function () {
+Person.prototype.arrowTalk = () => {
     return this;
 };
 const me = new Person('Nikhil');
@@ -91,7 +95,7 @@ function f() {
         t: this,
         Func: function Func() {
             this.age = 21;
-            console.log('func', this); // func Func {age: 21}
+            console.log('func :', this); // func : Func {age: 21}
         },
     };
     const p1 = new ob.Func();
@@ -104,7 +108,21 @@ function f() {
 f();
 ```
 
-### Event handlers.
+### 3. Never use arrow function as Constructor functions :
+
+-   They are anonymous functions that don't have a prototype of its own.
+-   They inherit the prototype property from the enclosing parent function.
+
+    -   So, using `new` keyword for arrow function will give `TypeError`.
+
+    ```js
+    const Person(n) = (n) => {
+        this.name = n;
+    }
+    const name = new Person('Sina'); // TypeError: Person is not a constructor.
+    ```
+
+### 4. Event handlers :
 
 -   The arrow function will point to the `window` object as event listeners are added in the global scope.
 
@@ -126,7 +144,7 @@ document.body.document.body.addEventListener('click', () => {
 
 -   The event listener has the ability to bind the callback function to the `this` (ie. the DOM element). bcz, thats where the event listener is attached to.
     but,
-    in setTimeout() we don't see such behavoiur as the setTimeout function does not have the ability to bind to anything as it does have anything to bind it to.
+    in setTimeout() we don't see such behaviour as the setTimeout() function does not have the ability to bind to anything.
 
 ```js
 function outer(callback) {
