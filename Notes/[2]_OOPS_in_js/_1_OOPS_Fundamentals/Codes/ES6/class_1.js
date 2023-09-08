@@ -17,7 +17,7 @@ class Avengers {
 }
 console.log(Avengers.teamName); // Earth's Mightiest Heroes
 const ironMan = new Avengers('Tony Stark', 'Armor Suit', 'Shield');
-console.log(ironMan); // Avengers { name: 'Tony Stark', power: 'Armor Suit', team: 'Shield' }
+console.log(ironMan.avengerName); // Avengers { name: 'Tony Stark', power: 'Armor Suit', team: 'Shield' }
 ironMan.avengerName = 'Iron Man';
 console.log(ironMan); // Avengers { name: 'Iron Man', power: 'Armor Suit', team: 'Shield' }
 

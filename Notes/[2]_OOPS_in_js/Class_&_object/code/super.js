@@ -1,4 +1,5 @@
 class Avenger {
+    k = 20;
     constructor(name, age, superPower) {
         this.name = name;
         this.age = age;

@@ -10,3 +10,5 @@
         - The ability of an object to take on many forms.
     4. `Abstraction`
         - The process of hiding the implementation details and simplifying complex systems by breaking them down into smaller.
+
+# Classical vs Prototypal Inheritance :-

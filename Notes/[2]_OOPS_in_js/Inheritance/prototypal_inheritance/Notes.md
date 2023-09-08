@@ -29,3 +29,5 @@ const obj3 = {
 console.log(obj3.getRollNum()); // Gautam
 console.log(obj3.getName()); // 3
 ```
+
+# Classical vs Prototypal Inheritance :-

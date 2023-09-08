@@ -97,6 +97,8 @@
         10. All lodash utility functions.
         11. `new` keyword .
         12. Polyfill for Promise itself.
+22. JSON.stringify to print objects until a certain depth.
+23. `void` in JS.
 
 ES6 brought :-
 

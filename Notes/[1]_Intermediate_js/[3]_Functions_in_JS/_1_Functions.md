@@ -241,3 +241,22 @@ function outer() {
 }
 outer();
 ```
+
+## `Function.length` property :-
+
+-   The length data property of a Function instance indicates the number of parameters expected by the function.
+
+```js
+console.log(Function.length); // 1
+
+console.log((() => {}).length); // 0
+console.log(((a) => {}).length); // 1
+console.log(((a, b) => {}).length); // 2 etc.
+
+console.log(((...args) => {}).length);
+// 0, rest parameter is not counted
+
+console.log(((a, b = 1, c) => {}).length);
+// 1, only parameters before the first one with
+// a default value are counted
+```
