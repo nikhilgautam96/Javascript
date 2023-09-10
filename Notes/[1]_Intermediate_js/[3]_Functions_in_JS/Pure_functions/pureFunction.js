@@ -3,6 +3,10 @@
     of inputs.
     --> Pure functions do not have any 'side effects'.
     --> Side Effects : when a functions alters/changes anything outside its scope
+
+    ADVANTAGES :
+        1. Easy to Test.(as there are no side effects.)
+        2. Easy to maintain.
 */
 
 // example 1

@@ -29,6 +29,7 @@ const memoizedFibonacci = memoize(function (n) {
     if (n <= 1) return n;
     return memoizedFibonacci(n - 1) + memoizedFibonacci(n - 2);
 });
+
 // Calling the memoized function.
 console.log(memoizedFibonacci(4)); // 13
 console.log('------------');

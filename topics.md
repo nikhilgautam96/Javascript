@@ -99,6 +99,7 @@
         12. Polyfill for Promise itself.
 22. JSON.stringify to print objects until a certain depth.
 23. `void` in JS.
+24. `Context`
 
 ES6 brought :-
 
