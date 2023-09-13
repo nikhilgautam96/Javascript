@@ -21,6 +21,7 @@ console.log(newArray); // [ 4, 3, 2, 1 ]
 # Iterators :-
 
 -   An object becomes an iterator when it implements the `next()` method. Thus, generates the next value.
+    Hence helps in iterating over the Iterable object.
 -   The next() method must return an object with 2 properties:
     1. `Value` : next-value
     2. `done` : True(iterator completed)/False(iterator returned a new value)

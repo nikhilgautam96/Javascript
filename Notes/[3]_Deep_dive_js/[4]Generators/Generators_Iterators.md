@@ -49,7 +49,8 @@ console.log(automaticFetcher.next());
 
 # Generators :-
 
--   generator functions allow us to define an iterative algorithm by writing a single function whose execution is not continious.
+-   Generator functions allow us to define an iterative algorithm by writing a single function whose execution is not continious.
+-   Function is executed in a LAZY fashion.
 -   `Syntax : function* [name]`
 -   `Generator functions do not initially execute their code. instead, they return a special type of iterator, called a Generator.`
 -   When a value is consumed by calling the generator's next() method, the generator function executes until it encounters the `yield` keyword. again if we call next() it will start from where it had left and execute until next yield encounter.

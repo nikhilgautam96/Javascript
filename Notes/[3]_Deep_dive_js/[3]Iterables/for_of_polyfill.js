@@ -2,10 +2,18 @@ function createIterator(array) {
     let index = 0;
 
     /*
-        --> Every time, "for of" loop looks for [Symbol.iterator] function.
-        --> The  [Symbol.iterator] function returns "this" (context of the current object).
-        --> The returned context contains the "next()" method so "this" is used to call the next method of
-        current object/context.
+        --> The [Symbol.iterator] method is called only once when you initialize the for...of loop, 
+            and it returns an iterator object. 
+
+        --> The [Symbol.iterator] function is expected to return an iterable object, 
+            not the this context itself. 
+            --> In our code, it returns an object that has both a [Symbol.iterator] method and 
+                a next() method.
+            --> The [Symbol.iterator] method returns this, which is a reference to the object itself, 
+                "effectively making the object iterable".
+
+        --> The iterator object is then used for the duration of the loop, and the next() method 
+            of the iterator is called each time the loop iterates to retrieve the next value.
     */
     return {
         [Symbol.iterator]: function () {
@@ -22,7 +30,7 @@ function createIterator(array) {
 const myArray = [1, 2, 3];
 
 let iterator = createIterator(myArray);
-
+console.log(iterator);
 for (const x of iterator) {
     console.log(x);
 }
@@ -32,7 +40,7 @@ for (const x of iterator) {
     3
 */
 /* 
-    --> once we have iterated over the Iterable the iterator can't re iterate from start, 
+    --> once we have iterated over the Iterable the iterator can't re-iterate from start, 
         so we need to initialize a new iterator.
  */
 iterator = createIterator(myArray);
