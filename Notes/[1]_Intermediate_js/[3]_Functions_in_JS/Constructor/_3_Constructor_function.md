@@ -2,6 +2,7 @@
 
 -   It gets the name from the constructors inside of the class.
 -   In a constructor function, a binding is created automatically b/w the `this` keyword and the empty object created by the new keyword.
+-   Here we can add properties/methods to the prototype of Constructor function and it will be shared with all of its instances.
 
 ```js
 function Person(name) {

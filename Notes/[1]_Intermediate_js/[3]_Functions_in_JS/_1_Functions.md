@@ -302,3 +302,30 @@ output = pure(arr2, 15);
 console.log(output); // [ 11, 12, 13, 14, 15 ]
 console.log(arr2); // [ 11, 12, 13, 14 ]
 ```
+
+## `static` properties inside a function :-
+
+-   In JavaScript, you can create static properties inside a function by adding properties directly to the function itself, rather than adding them to the function's prototype or to instances of the function. Static properties are shared among all instances of the function and can be accessed directly from the function without needing to create an instance.
+-   eg :-
+
+```js
+function Car(make, model) {
+    // Instance properties
+    this.make = make;
+    this.model = model;
+
+    // Static property (shared among all Car instances)
+    Car.totalCars = (Car.totalCars || 0) + 1;
+}
+
+// Creating instances of the Car function
+const car1 = new Car('Toyota', 'Camry');
+const car2 = new Car('Honda', 'Civic');
+
+// Accessing instance properties
+console.log(car1.make); // "Toyota"
+console.log(car2.model); // "Civic"
+
+// Accessing the static property
+console.log(Car.totalCars); // 2 (since we created two instances)
+```

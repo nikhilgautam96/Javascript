@@ -9,7 +9,7 @@
 # Prototype :-
 
 -   Objects don't have `prototype` property, only `Constructor Functions` and `Classes` have.
--   Objects have `__proto__`.
+-   Objects have `__proto__` (dunder proto).
 -   It is a mechanism using which JS objects inherits features from one another.
 -   It is a property which also is actually an object.
 -   `If we make changes to the prototype of an (function/Class)object, it will reflect on the already created objects of that class/function as well, during runtime`.

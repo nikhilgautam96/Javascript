@@ -1,7 +1,7 @@
 # DOM :-
 
 -   The browser creates a `Document Object Model` of the page when it loads.
--   DOM is a tree of objects.
+-   DOM is a `tree of objects`.
 -   It defines `properties, methods, events` for all the HTML elements.
 -   ![Dom-Tree](../Images/DOM-Tree.png)
 

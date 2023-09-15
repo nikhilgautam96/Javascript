@@ -5,6 +5,7 @@
 -   It's a way to encapsulate and abstract the process of object creation, making it more flexible and reusable compared to using constructors directly.
 -   Factory functions are particularly useful when you need to create multiple objects with similar properties and behaviors.
 -   Promotes `Data Privacy` by default bcz of closures.
+-   If you are creating objects with the same properties and different values, then creating one factory function can make this process quicker.
 
 ```js
 // Data Privacy

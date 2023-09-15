@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            div {
+                background-color: orange;
+                padding: 40px;
+                font-size: large;
+                font-weight: 400;
+            }
+            #childDiv1,
+            #childDiv2 {
+                background-color: rgb(236, 67, 67);
+                padding: 40px;
+            }
+            #grandChildDiv1,
+            #grandChildDiv2 {
+                background-color: pink;
+                padding: 40px;
+            }
+            #superGrandChildDiv1,
+            #superGrandChildDiv2 {
+                background-color: rgb(30, 164, 3);
+                padding: 40px;
+            }
+            p {
+                background-color: whitesmoke;
+                padding: 20px;
+                border: 2px solid black;
+                font-size: larger;
+                font-weight: 600;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Javascript Eveent Propagation</h2>
+        <div id="myDiv1">
+            Div
+            <div id="childDiv1">
+                childDiv
+                <div id="grandChildDiv1">
+                    grandChildDiv
+                    <div id="superGrandChildDiv1">
+                        superGrandChildDiv
+                        <h2>Bubbling:</h2>
+                        <p id="myP1">click me!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        <div id="myDiv2">
+            Div
+            <div id="childDiv2">
+                childDiv
+                <div id="grandChildDiv2">
+                    grandChildDiv
+                    <div id="superGrandChildDiv2">
+                        superGrandChildDiv
+                        <h2>Capturing:</h2>
+                        <p id="myP2">click me!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById('myP1').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the white element!');
+                },
+                false // useCapture = false (by-default) ===> 'Bubbling is the default nature'
+            );
+            document.getElementById('myDiv1').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the orange element!');
+                },
+                false
+            );
+            document.getElementById('childDiv1').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the red element!');
+                },
+                false
+            );
+            document.getElementById('grandChildDiv1').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the pink element!');
+                },
+                false
+            );
+
+            document.getElementById('myP2').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the white element!');
+                },
+                false
+            );
+            document.getElementById('myDiv2').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the orange element!');
+                },
+                true
+            );
+            document.getElementById('childDiv2').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the red element!');
+                },
+                false
+            );
+            document.getElementById('grandChildDiv2').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the pink element!');
+                },
+                true
+            );
+        </script>
+    </body>
+</html>

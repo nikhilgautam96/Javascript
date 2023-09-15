@@ -348,7 +348,7 @@ console.log(Array.prototype.flat.call(arrayLike));
 // [ 1, 2, { '0': 3, '1': 4, length: 2 }, 5 ]
 ```
 
--   Other methods :
+-   `Other methods` :
 
 ```js
 const a = [1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -497,4 +497,44 @@ const array1 = [1, 30, 4, 21, 100000];
 array1.sort();
 console.log(array1);
 // output: Array [1, 100000, 21, 30, 4]
+```
+
+-   `splice()` :
+
+```js
+/*
+‘Splice’,
+    --> according to the dictionary, means to join things together.
+    --> It is used to remove elements from an array or replace them.
+
+SYNTAX :
+    --> " array.splice(start, deleteCount, newElem1, newElem2, ..., newElemN) "
+    --> "start" : denotes the index from which the method will start its operation on the array.
+    --> "deleteCount" : denotes the number of values to be deleted from the start.
+                        If the value is 0, nothing will be deleted.
+    --> " newElem1 to newElemN " : denote the values that would be added after the start.
+
+RETURN VALUE :
+    --> The returned value is the values that are affected,i.e., deleted.
+    --> If deleteCount is 0, an empty array '[]' would be returned.
+*/
+
+// Example :
+
+let arr = ['educative', 4, [1, 3], { type: 'animal' }];
+let returnedArr = arr.splice(2, 1, { name: 'educative' });
+console.log(arr); // [ 'educative', 4, { name: 'educative' }, { type: 'animal' } ]
+console.log(returnedArr); // [ [ 1, 3 ] ]
+
+returnedArr = arr.splice(2, { name: 'Nikhil' });
+console.log(arr); // [ 'educative', 4, { name: 'educative' }, { type: 'animal' } ]
+console.log(returnedArr); // []
+
+returnedArr = arr.splice(2, 0, { name: 'Nikhil' });
+console.log(arr); // [ 'educative', 4, { name: 'Nikhil' }, { name: 'educative' }, { type: 'animal' } ]
+console.log(returnedArr); // []
+
+returnedArr = arr.splice(2);
+console.log(arr); // [ 'educative', 4 ]
+console.log(returnedArr); // [ { name: 'Nikhil' }, { name: 'educative' }, { type: 'animal' } ]
 ```

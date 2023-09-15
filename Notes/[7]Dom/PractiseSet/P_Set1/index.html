@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Welcome to my website</h1>
+        <p id="message">Please select a topic from the menu.</p>
+        <ul class="ul">
+            <li>Topic 1</li>
+            <li>Topic 2</li>
+            <li>Topic 3</li>
+        </ul>
+    </body>
+    <script>
+        let message = document.getElementById('message');
+        console.log(message);
+        message.innerHTML = 'I have changed the inner html';
+        message.innerText = 'I have changed the text.';
+        const list = document.getElementsByTagName('li');
+        console.log(list);
+        const ul = document.querySelectorAll('.ul');
+        console.log(ul);
+    </script>
+</html>
