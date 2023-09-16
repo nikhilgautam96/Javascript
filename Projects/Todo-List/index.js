@@ -1,40 +1,20 @@
-const validateTask = (inputText) => {
-    return inputText === '' ? false : true;
-};
-const createTodoTask = (inputText) => {
-    // creating 'INPUT tytpe=checkbox'
-    const checkbox = createCheckbox(inputText);
+const notificationFunc = (notificationText, notificationColor) => {
+    // Adding a Notification Feature that displays a new todo is added/ a todo is deleted.
+    const parent = document.getElementsByClassName('todo')[0];
+    const todoHead = document.getElementsByClassName('todo-head')[0];
 
-    // creating 'LABEL for=checkbox'
-    const label = createLabel(inputText);
+    const notification = document.createElement('div');
+    notification.innerText = notificationText;
+    notification.style.color = notificationColor;
 
-    // creating 'DIV'
-    const taskListDiv = createDiv(checkbox, label);
-
-    // creating 'BUTTON for=delete'
-    const deleteButton = createDeleteButton();
-
-    // creating 'LI'
-    const taskListItem = createTaskListItem(taskListDiv, deleteButton);
-    return taskListItem;
-};
-const addTodoTask = (task) => {
-    const ul = document.getElementById('todo-tasks');
-    ul.appendChild(task);
-};
-const addTask = () => {
-    const inputText = document.getElementById('input-text').value;
-    if (validateTask(inputText) === false) {
-        alert('ERROR : You are trying to add a BLANK task.');
-    } else {
-        taskCounter++;
-        const task = createTodoTask(inputText);
-        document.getElementById('input-text').value = ''; // making the input field as BLANK.
-        addTodoTask(task);
-    }
+    parent.insertBefore(notification, todoHead);
+    setTimeout(() => {
+        notification.remove();
+    }, 1000);
 };
 const deleteTodoItem = (e) => {
     e.target.parentNode.remove();
+    notificationFunc('Todo task has been DELETED', 'red');
 };
 const doneTask = (e) => {
     const elem = document.getElementById(e.target.id + '-label');
@@ -81,6 +61,43 @@ const createTaskListItem = (taskListDiv, deleteButton) => {
     taskListItem.appendChild(taskListDiv);
     taskListItem.appendChild(deleteButton);
     return taskListItem;
+};
+const validateTask = (inputText) => {
+    return inputText === '' ? false : true;
+};
+const createTodoTask = (inputText) => {
+    // creating 'INPUT tytpe=checkbox'
+    const checkbox = createCheckbox(inputText);
+
+    // creating 'LABEL for=checkbox'
+    const label = createLabel(inputText);
+
+    // creating 'DIV'
+    const taskListDiv = createDiv(checkbox, label);
+
+    // creating 'BUTTON for=delete'
+    const deleteButton = createDeleteButton();
+
+    // creating 'LI'
+    const taskListItem = createTaskListItem(taskListDiv, deleteButton);
+    return taskListItem;
+};
+const addTodoTask = (task) => {
+    const ul = document.getElementById('todo-tasks');
+    ul.appendChild(task);
+};
+const addTask = () => {
+    const inputText = document.getElementById('input-text').value;
+    if (validateTask(inputText) === false) {
+        alert('ERROR : You are trying to add a BLANK task.');
+    } else {
+        taskCounter++;
+        const task = createTodoTask(inputText);
+        document.getElementById('input-text').value = ''; // making the input field as BLANK.
+        addTodoTask(task);
+
+        notificationFunc('Todo task added Successfully 🙂', 'green');
+    }
 };
 let taskCounter = 0;
 const addTaskButton = document.getElementById('add-task');

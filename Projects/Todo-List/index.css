@@ -56,12 +56,6 @@ input {
     background-color: rgb(233, 192, 143);
     color: rgb(78, 60, 43);
 }
-/* .todo-list {
-    /* display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 10px 20px; 
-} */
 .todo-tasks {
     background-color:  rgb(154, 125, 98);
 }
