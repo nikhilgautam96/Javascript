@@ -6,11 +6,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
     </head>
+    <style>
+        ul {
+            border: 1px solid black;
+            padding: 40px;
+            max-width: max-content;
+            background-color: blanchedalmond;
+        }
+        li {
+            margin: 10px;
+            background-color: rgb(241, 176, 90);
+        }
+    </style>
     <body>
         <ul id="my-list">
             <li>Item 1</li>
             <li>Item 2</li>
             <li>Item 3</li>
+            <li>Item 4</li>
+            <li>Item 5</li>
+            <li>Item 6</li>
+            <li>Item 7</li>
+            <li>Item 8</li>
+            <li>Item 9</li>
         </ul>
+        <script>
+            const myList = document.getElementById('my-list');
+            console.log(myList);
+            myList.addEventListener('click', function (event) {
+                const even = ['Item 2', 'Item 4', 'Item 6', 'Item 8'];
+                const odd = ['Item 1', 'Item 3', 'Item 5', 'Item 9'];
+                console.log(event.target);
+                if (event.target.tagName === 'LI')
+                    console.log(`${event.target.textContent} clicked`);
+                if (even.includes(event.target.textContent)) {
+                    myList.style.backgroundColor = 'pink';
+                } else if (odd.includes(event.target.textContent)) {
+                    myList.style.backgroundColor = 'purple';
+                }
+            });
+        </script>
     </body>
 </html>

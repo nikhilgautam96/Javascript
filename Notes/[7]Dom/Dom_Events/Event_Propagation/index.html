@@ -13,17 +13,20 @@
                 font-weight: 400;
             }
             #childDiv1,
-            #childDiv2 {
+            #childDiv2,
+            #childDiv3 {
                 background-color: rgb(236, 67, 67);
                 padding: 40px;
             }
             #grandChildDiv1,
-            #grandChildDiv2 {
+            #grandChildDiv2,
+            #grandChildDiv3 {
                 background-color: pink;
                 padding: 40px;
             }
             #superGrandChildDiv1,
-            #superGrandChildDiv2 {
+            #superGrandChildDiv2,
+            #superGrandChildDiv3 {
                 background-color: rgb(30, 164, 3);
                 padding: 40px;
             }
@@ -67,7 +70,23 @@
                 </div>
             </div>
         </div>
+        <br />
+        <div id="myDiv3">
+            Div
+            <div id="childDiv3">
+                childDiv
+                <div id="grandChildDiv3">
+                    grandChildDiv
+                    <div id="superGrandChildDiv3">
+                        superGrandChildDiv
+                        <h2>Capturing:</h2>
+                        <p id="myP3">click me!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
+            // Bubbling:
             document.getElementById('myP1').addEventListener(
                 'click',
                 function () {
@@ -97,12 +116,13 @@
                 false
             );
 
+            // Capturing:
             document.getElementById('myP2').addEventListener(
                 'click',
                 function () {
                     alert('You clicked the white element!');
                 },
-                false
+                true
             );
             document.getElementById('myDiv2').addEventListener(
                 'click',
@@ -116,7 +136,7 @@
                 function () {
                     alert('You clicked the red element!');
                 },
-                false
+                true
             );
             document.getElementById('grandChildDiv2').addEventListener(
                 'click',
@@ -124,6 +144,36 @@
                     alert('You clicked the pink element!');
                 },
                 true
+            );
+
+            // Nested ():
+            document.getElementById('myP3').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the white element!');
+                },
+                false // bubbling
+            );
+            document.getElementById('myDiv3').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the orange element!');
+                },
+                true // capturing
+            );
+            document.getElementById('childDiv3').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the red element!');
+                },
+                false // bubbling
+            );
+            document.getElementById('grandChildDiv3').addEventListener(
+                'click',
+                function () {
+                    alert('You clicked the pink element!');
+                },
+                true // capturing
             );
         </script>
     </body>

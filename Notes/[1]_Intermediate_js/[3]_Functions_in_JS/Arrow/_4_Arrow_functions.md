@@ -122,7 +122,7 @@ f();
     const name = new Person('Sina'); // TypeError: Person is not a constructor.
     ```
 
-### 4. Event handlers :
+### 4. Never use in Event handlers :
 
 -   The arrow function will point to the `window` object as event listeners are added in the global scope.
 
@@ -134,7 +134,7 @@ document.body.addEventListener('click', function () {
 // <body> ... </body>
 // <body> ... </body>
 
-document.body.document.body.addEventListener('click', () => {
+document.body.addEventListener('click', () => {
     console.log(this);
 });
 // onClick :
@@ -142,7 +142,7 @@ document.body.document.body.addEventListener('click', () => {
 // Window {window: Window, self: Window, document: document, name: 'nikhil', location: Location, …}
 ```
 
--   The event listener has the ability to bind the callback function to the `this` (ie. the DOM element). bcz, thats where the event listener is attached to.
+-   `The event listener has the ability to bind the callback function to the `this` (ie. the DOM element). bcz, thats where the event listener is attached to`.
     but,
     in setTimeout() we don't see such behaviour as the setTimeout() function does not have the ability to bind to anything.
 

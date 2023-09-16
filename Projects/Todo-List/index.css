@@ -1,0 +1,111 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background-color: beige;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+h1 {
+    text-align: center;
+    padding: 20px;
+    color: rgb(213, 133, 34);
+    background-color: rgb(78, 60, 43);
+    min-height: 3rem;
+    font-weight: 600;
+    font-family: 'Courier New', Courier, monospace;
+    width: 800px;
+    box-sizing: border-box;
+}
+.todo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 800px;
+    border: 3px solid rgb(78, 60, 43);
+    padding: 20px;
+    box-sizing: border-box;
+}
+.todo-head {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    flex-direction: row;
+    box-sizing: border-box;
+}
+input {
+    width: 300px;
+    border: 3px solid rgb(78, 60, 43);
+    margin-right: 20px;
+    padding: 10px;
+}
+.btn {
+    min-width: 100px;
+    max-width: max-content;
+    border: 3px solid rgb(78, 60, 43);
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 800;
+}
+.btn-add-task {
+    background-color: rgb(233, 192, 143);
+    color: rgb(78, 60, 43);
+}
+/* .todo-list {
+    /* display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px 20px; 
+} */
+.todo-tasks {
+    background-color:  rgb(154, 125, 98);
+}
+ul {
+    list-style-type: none;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+li {
+    display: flex;
+    flex-direction: row;
+    box-sizing: border-box;
+    margin-bottom: 4px;
+}
+.todo-item {
+    /* padding: 10px; */
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: 600;
+}
+.task-content {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(233, 192, 143);
+    color: rgb(78, 60, 43);
+    width: 325px;
+    min-height: 40px;
+    max-height: fit-content;
+    padding: 10px;
+    margin-right: 20px;
+    border: 3px solid rgb(78, 60, 43);
+    box-sizing: border-box;
+}
+.task-checkbox {
+    width: max-content;
+}
+.task-label {
+    width: 100%;
+}
+.btn-delete {
+    background-color: rgb(222, 8, 8);
+    color: bisque;
+}
+.strikethrough {
+    text-decoration: line-through;
+}
