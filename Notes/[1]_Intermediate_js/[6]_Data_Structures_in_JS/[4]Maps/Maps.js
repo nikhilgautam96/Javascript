@@ -1,6 +1,6 @@
 /*
     1. Map is class defined in JS.
-    2. Datatype of 'Map' is = 'function'. ( datatype of class in JS is function).
+    2. Datatype of 'Map' is = 'function'. ( datatype of class in JS is function ).
     3. Holds "key-value" pairs where the "keys can be of any datatype", 
             unlike in Objects where keys can be either String or Symbol.
     4. Map remembers the original insertion order of the keys.

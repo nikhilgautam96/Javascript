@@ -1,3 +1,7 @@
+# `VVIMP` :
+
+-   **_ Event propagation is a phenopmenon, while event Delegation is a technique/strategy. _**
+
 # Event propagation :
 
 -   There are 2 ways of event propagation in the HTML DOM;

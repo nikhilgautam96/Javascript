@@ -89,15 +89,15 @@ let captainAmerica = {
 };
 
 /*
- Object.entries(obj) --> returns an array.
+ Object.entries(obj) --> returns an array. [[key, value], [key, value]]
 */
 const allEntries = Object.entries(ironMan);
 /*
- Object.values(obj) --> returns an array.
+ Object.values(obj) --> returns an array. [value1, value2]
 */
 const allValues = Object.values(ironMan);
 /*
- Object.keys(obj) --> returns an array.
+ Object.keys(obj) --> returns an array. [key1, key2]
 */
 const allKeys = Object.keys(ironMan);
 console.log(allEntries);

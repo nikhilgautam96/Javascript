@@ -50,6 +50,7 @@
     };
     person = 'Some random string';
     // the object referenced by person above will never be garbage collected.
+    // So is the case with global variables.
     ```
 
 4. `Unclosed WebSockets and Network Requests`
