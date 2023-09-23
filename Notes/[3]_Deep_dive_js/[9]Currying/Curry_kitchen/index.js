@@ -5,6 +5,8 @@
  *      --> takes a function f(a, b, c) and then converts it into f(a)(b)(c).
  *      --> the number of nested functions in curry fuinction is always equal to the
  *          number of arguments in original function.
+ * We can call tghe curried function in any fashion we want a long as we provide the exact number of arguments,
+ *      we will still get the same results.
  */
 
 const curry = (func) =>

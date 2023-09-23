@@ -1,3 +1,13 @@
+/**
+ * SCENARIO :
+ *    --> Suppose we want to develop an automatic mailing system that sends automatic emails on the basis
+ *          of parameters received.
+ *    --> But, given the situation that we can only send emails if and when we have (to, subject and body)
+ *          for that email.
+ *    --> Also, all three information we get using seperate api() calls. and we can perform each step one
+ *          after another in the sequence given.
+ */
+
 function sendAutoEmail(to) {
     return function (subject) {
         return function (body) {
